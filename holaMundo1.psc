@@ -1,3 +1,3 @@
-Proceso hola
+Proceso holaMundo 
 	Escribir "Hola Mundo";
 FinProceso
