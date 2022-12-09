@@ -1,0 +1,66 @@
+//Autor:Karime Alejandra Caballero Campos
+	//9/12/22
+	
+SubProceso datos 
+	Definir co1 como entero;
+	Para co1<- 1 Hasta 30 Con Paso 1 Hacer
+		Escribir Sin Saltar"-";
+	FinPara
+	Escribir "";
+	
+	Escribir "Karime Alejandra Caballero Campos";
+	Escribir "Algoritmo:Verifica si tu correo electronico es falso o no";
+	definir co,total Como Entero;//el ciclo pra siempre tiene que tener contador= entero
+	
+	Para co<- 1 Hasta 30 Con Paso 1 Hacer
+		Escribir Sin Saltar"-";
+	FinPara
+	Escribir "";
+FinSubProceso
+
+Proceso coreeo_valido
+	datos;
+	definir correo,carac, ter, arr Como Caracter;//ter es terminar,carac caracter
+	definir co1,co2,long,long2, arroba, error Como Entero;
+	Definir cor1 como logico;
+	
+	Escribir Sin Saltar"Ingresa tu correo electronico ";
+	Leer correo;
+	
+	arr<-"@";
+	arroba<-0;
+	carac<- "|°!#$%&/()=?¡,; ";
+	error<-0;
+	co1<-1;
+	Mientras co1 <= Longitud(correo) Hacer
+		//va a encontarar todos los arrobas 
+		si Subcadena(correo,co1,co1)= "@" Entonces
+			arroba<-arroba+1;
+		FinSi
+		//Evalua si existe algun caracter extraño en el correo
+		Para co2<-1 Hasta Longitud(carac) -1 Hacer
+			si Subcadena(correo,co1,co1)=Subcadena(carac,co2,co2)Entonces
+				error<-error+1;
+			FinSi
+		FinPara
+		co1<-co1+1;//para que el contador vaya aumentando
+	FinMientras
+	
+	//comprueba si el correo tiene mas de un arroba
+	si arroba <> 1 Entonces
+		error<-error+1;
+	FinSi
+	//evalua si los ultimos 4 cararteres son igual a ".com".
+	si Subcadena(correo,Longitud(correo)-4, Longitud(correo)) <> ".com" Entonces
+		error<-error+1;
+	FinSi
+	
+	//evalua si es valido o no
+	si arroba=1 y error=0 Entonces
+		Escribir "El correo valido";
+	SiNo
+		Escribir "El correo NO es valido";
+	FinSi
+	
+	
+FinProceso
